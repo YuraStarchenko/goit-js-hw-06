@@ -6,7 +6,6 @@ const categorieList = document.querySelectorAll('#categories > li');
 console.log(`Number of categories ${categorieList.length}`);
 
 categorieList.forEach((element) => {
-
 	console.log(`Category: ${element.querySelector("h2").textContent}`);
 	console.log(`Elements: ${element.querySelectorAll("h2 + ul > li").length}`);
 });
