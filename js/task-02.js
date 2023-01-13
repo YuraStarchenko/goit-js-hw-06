@@ -23,16 +23,3 @@ for(const ingredient of ingredients) {
 	elemLi.textContent = ingredient;
 	elemUl.appendChild(elemLi);
 }
-
-
-// const ingredientsList = document.getElementById('ingredients');
-
-// const elemnt = ingredients.map(ingredient => {
-// 	const ingredientsItem = document.createElement('li');
-// 	ingredientsItem.classList.add('item');
-// 	ingredientsItem.textContent = ingredient;
-
-// 	return ingredientsItem;
-// });
-// console.log(elemnt);
-// ingredientsList.append(...elemnt);
