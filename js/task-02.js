@@ -14,25 +14,12 @@ const ingredients = [
   'Condiments',
 ];
 
-// const elemUl = document.getElementById('ingredients');
-// console.log(elemUl);
+const elemUl = document.getElementById('ingredients');
+console.log(elemUl);
 
-// for(const ingredient of ingredients) {
-// 	const elemLi = document.createElement('li');
-// 	elemLi.classList.add('item');
-// 	elemLi.textContent = ingredient;
-// 	elemUl.appendChild(elemLi);
-// }
-
-
-const ingredientsList = document.getElementById('ingredients');
-
-const elemnt = ingredients.map(ingredient => {
-	const ingredientsItem = document.createElement('li');
-	ingredientsItem.classList.add('item');
-	ingredientsItem.textContent = ingredient;
-
-	return ingredientsItem;
-});
-console.log(elemnt);
-ingredientsList.append(...elemnt);
+for(const ingredient of ingredients) {
+	const elemLi = document.createElement('li');
+	elemLi.classList.add('item');
+	elemLi.textContent = ingredient;
+	elemUl.appendChild(elemLi);
+}
