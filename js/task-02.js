@@ -14,12 +14,12 @@ const ingredients = [
   'Condiments',
 ];
 
-const elemUl = document.getElementById('ingredients');
-console.log(elemUl);
+const elementUl = document.getElementById('ingredients');
+console.log(elementUl);
 
 for(const ingredient of ingredients) {
-	const elemLi = document.createElement('li');
-	elemLi.classList.add('item');
-	elemLi.textContent = ingredient;
-	elemUl.appendChild(elemLi);
+	const elementLi = document.createElement('li');
+	elementLi.classList.add('item');
+	elementLi.textContent = ingredient;
+	elementUl.appendChild(elementLi);
 }
