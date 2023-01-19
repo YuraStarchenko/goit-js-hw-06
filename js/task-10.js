@@ -23,35 +23,40 @@
 // Створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи всі створені елементи.
 
 const refs = {
-  amountEl: document.querySelector('#controls input'),
-  createEl: document.querySelector('button[data-create]'),
-  destroyEl: document.querySelector('button[data-destroy]'),
-  boxesEl: document.querySelector('#boxes')
+	inputRef: document.querySelector('input[type="number"]'),
+	renderBtnRef: document.querySelector("[data-create]"),
+	destroyBtnRef: document.querySelector('[data-destroy]'),
+	boxesRef: document.querySelector("#boxes"),
+	counter: 0
 }
 
-function createBoxes(amount) {
-  for(let i = 0; i < amount; i++) {
-    const elem = document.createElement('div');
-    
-    elem.style.width = 30 + (10 * i)+'px';
-    elem.style.height = 30+'px';
-    elem.style.backgroundColor = getRandomHexColor();
-    
-    refs.boxesEl.append(elem);
-  }
+const createBoxes = (amount) => {
+	const widthEl = 30;
+	const heightEl = 30;
+	const stepEl = 10;
+	const arrayEl = new Array(amount).fill('');
+
+	return arrayEl
+		.map((elem, index) => {
+		return `<div style="width:${widthEl + stepEl * (refs.counter + index + 1)}px; height :${heightEl + stepEl * (refs.counter + index + 1)}px; background-color: ${getRandomHexColor()}" ></div>`;
+	})
+	.join('');
 }
 
-refs.createEl.addEventListener('click', function() {
-  const amount = refs.amountEl.value;
-  if(amount > 0) {
-    createBoxes(amount);
-  }
-});
+const onClickCreateBtnHandler = () => {
+	const amount = Number (refs.inputRef.value);
+	refs.boxesRef.innerHTML += createBoxes(amount);
+	refs.counter += amount;
+}
 
-refs.destroyEl.addEventListener('click', function() {
-  refs.boxesEl.innerHTML = '';
-});
+const onClickDestroyBtnHandler = () => {
+	refs.boxesRef.innerHTML = '';
+	refs.inputRef.value = 0;
+	refs.counter = 0;
+}
 
+refs.renderBtnRef.addEventListener('click', onClickCreateBtnHandler);
+refs.destroyBtnRef.addEventListener('click', onClickDestroyBtnHandler);
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
