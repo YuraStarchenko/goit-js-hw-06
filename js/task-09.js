@@ -14,3 +14,4 @@ widget.changeColorsBtn.addEventListener('click', () => {
 	widget.body.style.backgroundColor = getRandomHexColor();
 	widget.spanColor.textContent = widget.body.backgroundColor;
 });
+console.log(widget);

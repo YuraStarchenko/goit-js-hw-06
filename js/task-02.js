@@ -14,13 +14,15 @@ const ingredients = [
   'Condiments',
 ];
 
+const ingredientsEl = document.querySelector('#ingredients');
 
-ingredients.forEach((ingredient) => {
+const itemEl = ingredients.map((ingredients) => {
 	const item = document.createElement('li');
-	item.textContent = ingredient;
+	item.textContent = ingredients;
 	item.classList.add('item');
-	document.querySelector('#ingredients').append(item);
-})
+	return item;
+});
+
+ingredientsEl.append(...itemEl);
 
 console.log(ingredients);
-
